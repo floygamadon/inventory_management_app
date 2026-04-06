@@ -24,10 +24,10 @@ class _AddItemScreenState extends State<AddItemScreen> {
       final item = Item(
         id: '',
         name: _nameController.text,
-        quantity: int.parse(_quantityController.text),
-        price: double.parse(_priceController.text),
-        category: _categoryController.text,
-        inStock: int.parse(_quantityController.text) > 0,
+        quantity: int.parse(_quantityController.text.trim()),
+        price: double.parse(_priceController.text.trim()),
+        category: _categoryController.text.trim(),
+        inStock: int.parse(_quantityController.text.trim()) > 0,
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       );
@@ -36,6 +36,15 @@ class _AddItemScreenState extends State<AddItemScreen> {
 
       Navigator.pop(context); // go back to list
     }
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _quantityController.dispose();
+    _priceController.dispose();
+    _categoryController.dispose();
+    super.dispose();
   }
 
   @override
