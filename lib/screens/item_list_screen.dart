@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/item_service.dart';
 import '../models/item.dart';
+import '../screens/add_item_screen.dart';
 
 class ItemListScreen extends StatelessWidget {
   ItemListScreen({super.key});
@@ -53,6 +54,16 @@ class ItemListScreen extends StatelessWidget {
             },
           );
         },
+      ),
+      // Button to add new items
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const AddItemScreen()),
+          );
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
