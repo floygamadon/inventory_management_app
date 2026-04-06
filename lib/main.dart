@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'screens/item_list_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,11 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Inventory Management App',
-      home: const Scaffold(
-        body: Center(
-          child: Text('Inventory Management App'),
-        ),
-      ),
+      home: ItemListScreen(),
     );
   }
 }
