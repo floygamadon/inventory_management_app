@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../services/item_service.dart';
 import '../models/item.dart';
 import '../screens/add_item_screen.dart';
+import 'edit_item_screen.dart';
 
 class ItemListScreen extends StatelessWidget {
   ItemListScreen({super.key});
@@ -46,6 +47,14 @@ class ItemListScreen extends StatelessWidget {
                       : Icons.cancel,
                   color: item.inStock ? Colors.green : Colors.red,
                 ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => EditItemScreen(item: item),
+                    ),
+                  );
+                },
                 // delete example
                 onLongPress: () {
                   service.deleteItem(item.id);
