@@ -41,11 +41,20 @@ class ItemListScreen extends StatelessWidget {
               return ListTile(
                 title: Text(item.name),
                 subtitle: Text('Qty: ${item.quantity}'),
-                trailing: Icon(
-                  item.inStock
-                      ? Icons.check_circle
-                      : Icons.cancel,
-                  color: item.inStock ? Colors.green : Colors.red,
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      item.inStock ? Icons.check_circle : Icons.cancel,
+                      color: item.inStock ? Colors.green : Colors.red,
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () {
+                        service.deleteItem(item.id);
+                      },
+                    ),
+                  ],
                 ),
                 onTap: () {
                   Navigator.push(
